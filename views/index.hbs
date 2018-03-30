@@ -9,7 +9,12 @@
   braintree.dropin.create({
     // Insert your tokenization key here
     authorization: 'sandbox_q4nkc2k5_w5tbt5qrnt297c5p', //'<use_your_tokenization_key>',
-    container: '#dropin-container'
+    container: '#dropin-container',
+    paypal: {
+          flow: 'checkout',
+          amount: '10.00',
+          currency: 'USD'
+            }
   }, function (createErr, instance) {
     button.addEventListener('click', function () {
       instance.requestPaymentMethod(function (requestPaymentMethodErr, payload) {
