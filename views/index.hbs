@@ -9,7 +9,7 @@
   var button = document.querySelector('#submit-button');
   $.ajax({
     type: 'GET',
-    url: 'http://localhost:3000/checkout/client_token',
+    url: 'https://braintree-interview.herokuapp.com/checkout/client_token',
     // data: {'paymentMethodNonce': payload.nonce}
   }).done(function(clientToken) {
       console.log(clientToken);
