@@ -52,11 +52,7 @@ router.post('/', function(req, res, next) {
     }
   }, function(error, result) {
       if (result) {
-          // console.log('success:',result.success);   // true
-          // if (result.transaction.status) {
-          //     console.log('status:',result.transaction.status); // submitted_for_settlement
-          // }
-          console.log('currency',result.transaction.currencyIsoCode);
+          // console.log('currency',result.transaction.currencyIsoCode);
           if(result.success){
               console.log('status:',result.transaction.status);
           } else {
@@ -72,6 +68,7 @@ router.post('/', function(req, res, next) {
                   console.log(result.transaction.gatewayRejectionReason);
               }
           }
+          console.log(result);
         res.send(result);
       } else {
         res.status(500).send(error);

@@ -46,7 +46,17 @@
               });
 
               if (result.success) {
-                $('#checkout-message').html('<h1>Success</h1><p>Your Drop-in UI is working! Check your <a href="https://sandbox.braintreegateway.com/login">sandbox Control Panel</a> for your test transactions.</p><p>Refresh to try another transaction.</p>');
+                  console.log(result.transaction);
+                $('#checkout-message').html(
+/*                    '<h1>Success</h1><p>Your Drop-in UI is working! Check your <a href="https://sandbox.braintreegateway.com/login">sandbox Control Panel</a> for your test transactions.</p><p>Refresh to try another transaction.</p>'*/
+                    `
+                    <h1>Success</h1>
+                    <p>Your transaction id is <strong>${result.transaction.id}</strong><br>
+                    Check your <a href="https://sandbox.braintreegateway.com/login">sandbox Control Panel</a> for your test transactions.
+                    </p>
+
+
+                `);
               } else {
                 console.log(result);
                 $('#checkout-message').html('<h1>Error</h1><p>Check your console.</p>');
